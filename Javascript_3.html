@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Task 3</title>
+    <style>
+        /* Style for buttons */
+        .operation-button {
+            padding: 5px 10px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Multiplication and Division Calculator</h1>
+    
+    <form id="calculatorForm">
+        <label for="firstNumber">1st Number:</label>
+        <input type="number" id="firstNumber" name="firstNumber" required><br><br>
+        
+        <label for="secondNumber">2nd Number:</label>
+        <input type="number" id="secondNumber" name="secondNumber" required><br><br>
+        
+        <!-- Use buttons for operations -->
+        <button type="button" class="operation-button" id="multiplyButton">Multiply</button>
+        <button type="button" class="operation-button" id="divideButton">Divide</button><br><br>
+        
+        <button type="submit">Calculate</button>
+    </form>
+    
+    <p>The Result is: <span id="result"></span></p>
+    
+    <script>
+        // Function to perform multiplication
+        function multiplyNumbers() {
+            const firstNumber = parseFloat(document.getElementById('firstNumber').value);
+            const secondNumber = parseFloat(document.getElementById('secondNumber').value);
+            const result = firstNumber * secondNumber;
+            document.getElementById('result').textContent = result;
+        }
+
+        // Function to perform division
+        function divideNumbers() {
+            const firstNumber = parseFloat(document.getElementById('firstNumber').value);
+            const secondNumber = parseFloat(document.getElementById('secondNumber').value);
+            if (secondNumber === 0) {
+                document.getElementById('result').textContent = 'Division by zero is not allowed.';
+            } else {
+                const result = firstNumber / secondNumber;
+                document.getElementById('result').textContent = result;
+            }
+        }
+
+        // Attach event listeners to the buttons
+        document.getElementById('multiplyButton').addEventListener('click', multiplyNumbers);
+        document.getElementById('divideButton').addEventListener('click', divideNumbers);
+    </script>
+</body>
+</html>

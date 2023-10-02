@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript Task 2</title>
+  </head>
+  <body>
+    <h1>Sort a String Alphabetically</h1>
+
+    <form id="stringForm">
+      <label for="inputString">Enter a string: </label>
+      <input type="text" id="inputString" name="inputString" required />
+      <button type="submit">Sort</button>
+    </form>
+
+    <p>Sorted String: <span id="sortedString"></span></p>
+
+    <script>
+      function sortStringAlphabetically(inputString) {
+        // Split the string into an array of characters, sort it, and join it back into a string
+        return inputString.split("").sort().join("");
+      }
+
+      document
+        .getElementById("stringForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const inputElement = document.getElementById("inputString");
+          const sortedElement = document.getElementById("sortedString");
+
+          const userInput = inputElement.value.trim();
+
+          if (userInput.length > 0) {
+            const sorted = sortStringAlphabetically(userInput);
+            sortedElement.textContent = sorted;
+          } else {
+            sortedElement.textContent = "Please enter a valid string.";
+          }
+        });
+    </script>
+  </body>
+</html>
